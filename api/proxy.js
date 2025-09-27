@@ -8,7 +8,7 @@ module.exports = (req, res) => {
   //     req.url.startsWith("/banner") ||
   //     req.url.startsWith("/CollegeTask")
   //   ) {
-  //     target = "http://106.15.2.32:6969";
+  //     target = "http://google.com";
   //   }
 
   createProxyMiddleware({
