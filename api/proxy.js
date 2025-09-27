@@ -5,7 +5,7 @@ const http = require('http');
 http.Server.prototype.setMaxListeners(20); // 可根据实际场景调整数值
 
 module.exports = (req, res) => {
-  let target = "https://www.google.com/"; // 目标代理地址，可根据需求修改
+  let target = "https://gg.sompay.cn"; // 目标代理地址，可根据需求修改
   createProxyMiddleware({
     target,
     changeOrigin: true,
