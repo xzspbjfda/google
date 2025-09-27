@@ -11,6 +11,7 @@ module.exports = (req, res) => {
     changeOrigin: true,
     pathRewrite: {
       // 若有路径重写需求可在此配置，如 "^/custom-path/": "/"
+      /search
     },
   })(req, res);
 };
