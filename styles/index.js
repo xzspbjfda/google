@@ -6,54 +6,47 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Colnago</title>
-        <meta name="description" content="write-hub" />
+        <title>Website Proxy</title>
+        <meta name="description" content="Vercel-based website proxy service" />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <Link href="/">Colango!</Link>
+          Vercel Proxy Service
         </h1>
 
         <p className={styles.description}>
-          <code className={styles.code}>Let&apos;s go right now</code>
+          A simple and efficient web proxy solution
         </p>
 
         <div className={styles.grid}>
-          <Link href="/" className={styles.card}>
-            <h2>个人信息 &rarr;</h2>
-            <p>配置您的个人相关信息</p>
+          <Link href="/api/proxy" className={styles.card}>
+            <h2>Access Proxy &rarr;</h2>
+            <p>Navigate to the proxy service</p>
           </Link>
 
-          <Link href="/" className={styles.card}>
-            <h2>我的发布 &rarr;</h2>
-            <p>查看您以往发布的内容</p>
+          <Link href="https://github.com" target="_blank" className={styles.card}>
+            <h2>GitHub Repo &rarr;</h2>
+            <p>View the source code</p>
           </Link>
 
-          <Link href="/" className={styles.card}>
-            <h2>探索发现 &rarr;</h2>
-            <p>探索和你一样有趣的人</p>
+          <Link href="https://vercel.com" target="_blank" className={styles.card}>
+            <h2>Deploy on Vercel &rarr;</h2>
+            <p>Deploy your own instance</p>
           </Link>
 
-          <Link
-            href="/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>关于我们 &rarr;</h2>
-            <p>欢迎加入我们</p>
+          <Link href="#" className={styles.card}>
+            <h2>Documentation &rarr;</h2>
+            <p>Learn how to use the service</p>
           </Link>
         </div>
       </main>
 
       <footer className={styles.footer}>
-        <a href="/" target="_blank" rel="noopener noreferrer">
-          Powered by @crust-hub
-          {/* <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span> */}
+        <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">
+          Powered by Vercel
         </a>
       </footer>
     </div>
