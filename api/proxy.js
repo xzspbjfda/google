@@ -1,11 +1,9 @@
+// 必须放在所有依赖引入之前
 const util = require('util');
-
-// 用 Object.assign() 覆盖 util._extend 方法
-if (!util._extend) {
-  util._extend = function(target, ...sources) {
-    return Object.assign(target, ...sources);
-  };
-}
+// 覆盖弃用的util._extend方法
+util._extend = function(target, ...sources) {
+  return Object.assign(target, ...sources);
+};
 
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const http = require('http');
