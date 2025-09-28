@@ -1,23 +1,24 @@
 {
-  "name": "nextjs",
-  "version": "0.1.0",
+  "name": "vercel-proxy",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "test": "echo \"No tests yet\" && exit 0"
   },
   "dependencies": {
-    "next": "14.2.10",
+    "next": "14.2.13",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
     "eslint": "8.57.0",
-    "eslint-config-next": "14.2.10",
-    "http-proxy-middleware": "^3.0.2"
+    "eslint-config-next": "14.2.13",
+    "http-proxy-middleware": "^3.0.3"
   },
   "engines": {
     "node": ">=18.x"
