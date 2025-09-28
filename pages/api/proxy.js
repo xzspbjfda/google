@@ -1,34 +1,33 @@
-// 必须放在所有依赖引入之前
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const util = require('util');
-// 覆盖弃用的util._extend方法
+const { createProxyMiddleware } = require("http-proxy-middleware");
+const http = require('http');
+
+// 解决 util._extend 弃用警告
 util._extend = function(target, ...sources) {
   return Object.assign(target, ...sources);
 };
 
-const { createProxyMiddleware } = require("http-proxy-middleware");
-const http = require('http');
-
+// 调整监听器数量限制
 http.Server.prototype.setMaxListeners(20);
 
-module.exports = (req, res) => {
-  const target = "https://www.google.com/"; 
+export default function handler(req, res) {
+  // 目标代理地址（谷歌搜索）
+  const target = "https://www.google.com/";
 
+  // 创建并使用代理中间件
   createProxyMiddleware({
     target,
     changeOrigin: true,
-    // 新增：处理代理响应，解决渲染拦截问题
-    onProxyRes: (proxyRes, req, res) => {
-      // 1. 清除阻止页面渲染的响应头
+    onProxyRes: (proxyRes) => {
+      // 移除限制跨域渲染的响应头
       delete proxyRes.headers['x-frame-options'];
       delete proxyRes.headers['content-security-policy'];
-      // 2. 确保响应编码正确（避免乱码导致渲染卡住）
-      proxyRes.headers['content-type'] = proxyRes.headers['content-type'] || 'text/html; charset=utf-8';
     },
-    // 新增：处理二进制资源（如图片）加载
-    selfHandleResponse: false, // 保持默认，确保图片、JS等资源正常转发
     headers: {
       "User-Agent": req.headers["user-agent"],
       "Referer": "https://www.google.com/"
     }
   })(req, res);
-};
+}
+    
