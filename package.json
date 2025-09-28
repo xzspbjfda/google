@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build"  // 新增：部署前自动构建，确保依赖完整
+    "predeploy": "npm run build" 
   },
   "dependencies": {
     "next": "14.2.10",
@@ -20,6 +20,6 @@
     "http-proxy-middleware": "^3.0.2"
   },
   "engines": {
-    "node": ">=18.x"  // 新增：指定Node.js版本，与Vercel默认环境匹配
+    "node": ">=18.x"
   }
 }
