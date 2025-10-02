@@ -7,7 +7,7 @@ http.Server.prototype.setMaxListeners(50);
 
 export default function handler(req, res) {
   // 目标代理地址（可根据需求修改）
-  const target = "https://www.google.com/";
+  const target = "https://github.com/";
 
   // 创建代理中间件并配置
   const proxy = createProxyMiddleware({
